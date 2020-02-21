@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  --light: 95;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --light: 15;
+  }
+}
+body {
+  background: hsl(0, 0%, calc(var(--light) * 1%));
+  min-height: 100vh;
+  overflow: hidden;
+  -webkit-transition: background 0.1s ease 0s;
+  transition: background 0.1s ease 0s;
+  touch-action: none;
+}
+.star {
+  position: absolute;
+  left: calc(var(--x) * 1px);
+  top: calc(var(--y) * 1px);
+  height: calc(var(--s) * 1vmin);
+  width: calc(var(--s) * 1vmin);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transform: translate(-50%, -50%) rotate(calc(var(--r) * 1deg));
+          transform: translate(-50%, -50%) rotate(calc(var(--r) * 1deg));
+}
+.star svg {
+  height: 100%;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+.star path {
+  fill: hsl(var(--h), 100%, 75%);
+}
+h1 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  font-size: 5rem;
+  line-height: 5rem;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  margin: 0;
+}
